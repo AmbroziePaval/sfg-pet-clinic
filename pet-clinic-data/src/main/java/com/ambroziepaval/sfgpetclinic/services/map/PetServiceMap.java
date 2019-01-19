@@ -1,14 +1,14 @@
 package com.ambroziepaval.sfgpetclinic.services.map;
 
 import com.ambroziepaval.sfgpetclinic.model.Pet;
-import com.ambroziepaval.sfgpetclinic.services.CrudService;
+import com.ambroziepaval.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * Created by Ambrozie on 09/10/2018
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {

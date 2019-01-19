@@ -2,12 +2,14 @@ package com.ambroziepaval.sfgpetclinic.services.map;
 
 import com.ambroziepaval.sfgpetclinic.model.Pet;
 import com.ambroziepaval.sfgpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * Created by Ambrozie on 09/10/2018
  */
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override

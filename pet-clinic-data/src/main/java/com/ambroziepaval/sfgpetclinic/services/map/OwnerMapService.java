@@ -5,6 +5,7 @@ import com.ambroziepaval.sfgpetclinic.model.Pet;
 import com.ambroziepaval.sfgpetclinic.services.OwnerService;
 import com.ambroziepaval.sfgpetclinic.services.PetService;
 import com.ambroziepaval.sfgpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -14,6 +15,7 @@ import java.util.Set;
  * Created by Ambrozie on 09/10/2018
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;

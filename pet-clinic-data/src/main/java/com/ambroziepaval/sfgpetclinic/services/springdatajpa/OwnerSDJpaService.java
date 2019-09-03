@@ -2,8 +2,6 @@ package com.ambroziepaval.sfgpetclinic.services.springdatajpa;
 
 import com.ambroziepaval.sfgpetclinic.model.Owner;
 import com.ambroziepaval.sfgpetclinic.repositories.OwnerRepository;
-import com.ambroziepaval.sfgpetclinic.repositories.PetRepository;
-import com.ambroziepaval.sfgpetclinic.repositories.PetTypeRepository;
 import com.ambroziepaval.sfgpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

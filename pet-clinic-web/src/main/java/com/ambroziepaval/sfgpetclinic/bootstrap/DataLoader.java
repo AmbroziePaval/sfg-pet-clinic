@@ -2,6 +2,7 @@ package com.ambroziepaval.sfgpetclinic.bootstrap;
 
 import com.ambroziepaval.sfgpetclinic.model.*;
 import com.ambroziepaval.sfgpetclinic.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 /**
  * Created by Ambrozie on 19/01/2019
  */
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -61,7 +63,7 @@ public class DataLoader implements CommandLineRunner {
 
         Specialty dentistry = new Specialty();
         dentistry.setDescription("Dentistry");
-        Specialty savedDentistry = specialtyService.save(dentistry);
+        specialtyService.save(dentistry);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
@@ -102,7 +104,7 @@ public class DataLoader implements CommandLineRunner {
 
         visitService.save(catVisit);
 
-        System.out.println("Loaded Owners...");
+        log.info("Loaded Owners...");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
@@ -116,6 +118,6 @@ public class DataLoader implements CommandLineRunner {
         vet2.getSpecialties().add(savedSurgery);
         vetService.save(vet2);
 
-        System.out.println("Loaded Vets...");
+        log.info("Loaded Vets...");
     }
 }

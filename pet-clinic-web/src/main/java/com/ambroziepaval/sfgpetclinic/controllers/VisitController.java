@@ -9,9 +9,12 @@ import com.ambroziepaval.sfgpetclinic.services.VisitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
 import java.util.Map;
 
 @Controller
@@ -22,6 +25,18 @@ public class VisitController {
     private final OwnerService ownerService;
     private final VisitService visitService;
     private final PetService petService;
+
+    @InitBinder
+    public void dataBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+
+        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) {
+                setValue(LocalDate.parse(text));
+            }
+        });
+    }
 
     @ModelAttribute("owner")
     public Owner findOwner(@PathVariable("ownerId") Long ownerId) {
